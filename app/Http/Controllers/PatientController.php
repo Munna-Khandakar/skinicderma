@@ -24,5 +24,10 @@ class PatientController extends Controller
         $records = Record::where('id',$id)->get();
         return view('records.view_record')->with('patient',$patient)->with('records',$records);
     }
+    public function clear_due($id)
+    {
+        Record::where('id', $id)->update(array('due' => NULL));
+        return redirect()->back()->with('msg','Due Amount cleared successfully..!');
+    }
    
 }

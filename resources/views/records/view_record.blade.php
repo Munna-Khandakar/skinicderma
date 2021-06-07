@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content">
+    @if(session()->has('msg'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> {{session()->get('msg')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row">
         <div class="col-sm-7 col-6">
             <h4 class="page-title">Patient Profile</h4>
@@ -78,10 +86,10 @@
                                         @endif
 
                                     </td>
-                                     <td>{{$record->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$record->created_at->format('d/m/Y')}}</td>
                                     <td>
-                                     {{-- onclick="window.location='{{ route('view_record',['id' => $patient->id]) }}'" --}}
-                                        <button class="btn btn-outline-primary">View</button>
+                                        {{-- onclick="window.location='{{ route('view_record',['id' => $patient->id]) }}'" --}}
+                                        <button class="btn btn-outline-primary" onclick="window.location='{{ route('clear_due',['id' => $record->id]) }}'">Clear Due</button>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -49,5 +49,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/activities/record/{id}',[App\Http\Controllers\ActivitiesController::class, 'add_record'])->name('add_record');
     Route::post('/save/record',[App\Http\Controllers\ActivitiesController::class, 'save_record'])->name('saveRecords');
     Route::get('/records/{id}',[App\Http\Controllers\PatientController::class, 'view_record'])->name('view_record');
+    Route::get('/due/{id}',[App\Http\Controllers\PatientController::class, 'clear_due'])->name('clear_due');
 
 });

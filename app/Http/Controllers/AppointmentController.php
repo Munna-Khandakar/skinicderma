@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmMail;
 use App\Mail\NextAppointmentMail;
+use App\Mail\AdminNotificationMail;
 use App\Mail\ThanksMail;
 use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class AppointmentController extends Controller
         if($request->email){
             Mail::to($request->email)->send(new WelcomeMail($request->name));
         }
-        
+        //admin mail notification....
+        Mail::to('munnashisad@gmail.com')->send(new AdminNotificationMail());
         return view('thanks');
         
         
