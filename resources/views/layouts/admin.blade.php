@@ -27,7 +27,7 @@
 <div class="header">
 			<div class="header-left">
 				<a href="{{ url('/home') }}" class="logo">
-					<img src="{{asset('admin/assets/img/icon.png')}}" width="35" height="35" alt=""> <span>Skinic</span>
+					 <span>Skinic Derma</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>

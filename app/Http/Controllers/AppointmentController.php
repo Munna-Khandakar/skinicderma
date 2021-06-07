@@ -75,7 +75,7 @@ class AppointmentController extends Controller
         ];
         Mail::to($request->email)->send(new ConfirmMail($data));
 
-        return redirect()->route('appointments');
+        return redirect()->route('appointments')->with('msg','Appointment saved successfully...!');
     }
 
     public function deleteAppointment($id){
@@ -169,7 +169,7 @@ class AppointmentController extends Controller
         $event->endDateTime =  $endTime;
         $event->save();
 
-        return redirect()->route('appointments');
+        return redirect()->route('appointments')->with('msg','Appointment saved successfully...!');
             
         
         

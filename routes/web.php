@@ -7,6 +7,7 @@ Route::get('/', function () {
     
     return view('welcome');
 });
+
 //
 Route::get('invite', 'App\Http\Controllers\InviteController@invite')->name('invite');
 Route::post('invite', 'App\Http\Controllers\InviteController@process')->name('process');
@@ -45,4 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/confirmed/manually',[App\Http\Controllers\AppointmentController::class, 'bookAppointmentManually'])->name('bookAppointmentManually');
 
     Route::get('/activities',[App\Http\Controllers\ActivitiesController::class, 'read'])->name('activities');
+    Route::get('/activities/record/{id}',[App\Http\Controllers\ActivitiesController::class, 'add_record'])->name('add_record');
+    Route::post('/save/record',[App\Http\Controllers\ActivitiesController::class, 'save_record'])->name('saveRecords');
+    Route::get('/records/{id}',[App\Http\Controllers\PatientController::class, 'view_record'])->name('view_record');
+
 });
