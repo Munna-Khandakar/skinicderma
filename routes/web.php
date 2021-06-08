@@ -7,6 +7,16 @@ Route::get('/', function () {
     
     return view('welcome');
 });
+Route::get('/optimize', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('optimize');
+    // dd(Artisan::output());
+    return 'successfull';
+  //  return redirect()->back()->with('success', 'cache has been cleared'); 
+});
 
 //
 Route::get('invite', 'App\Http\Controllers\InviteController@invite')->name('invite');
@@ -26,6 +36,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin-view', 'HomeController@adminView')->name('admin.view');
     Route::get('/delete/doctor/{id}',[App\Http\Controllers\DoctorController::class, 'delete']);
     Route::post('/next/appointments',[App\Http\Controllers\AppointmentController::class, 'nextAppointment'])->name('nextAppointment');
+    Route::get('/make/admin', [App\Http\Controllers\HomeController::class, 'make_admin'])->name('make_admin');
+    Route::get('/make/admin/{id}',[App\Http\Controllers\HomeController::class, 'change_permission'])->name('change_permission');
+
 
 });
 

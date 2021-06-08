@@ -3,12 +3,12 @@
 <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Doctors</h4>
+                        <h4 class="page-title">Team Members</h4>
                     </div>
                     @if(Auth::user()->is_admin==1)
                     <div class="col-sm-8 col-9 text-right m-b-20">
                          @if (Route::has('register'))
-                             <a href="{{ route('register') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i>{{ __('Add Doctor') }}</a>
+                             <a href="{{ route('register') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i>{{ __('Add Member') }}</a>
                          @endif
                     </div>
                     @endif

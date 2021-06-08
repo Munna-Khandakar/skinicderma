@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
-use DB;
+use App\Models\User;
+use App\Models\Patient;
+// use DB;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -26,16 +28,36 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $doctor=DB::table('users AS t1')
-             ->select('t1.name','t2.occupation','t2.img')
-             ->leftJoin('profiles AS t2','t2.user_id','=','t1.id')
-             ->get();
+        $doctor_count=User::count();
+        $patient_count=Patient::count();
+        $appointment_count=Appointment::count();
+        
         //fetching the appointment for today
         $patient= Appointment::where(['appointments.date' => Carbon::now('Asia/Dhaka')->addDay(0)->format('Y-m-d')])
              ->orderBy('checked')
              ->get();
   
     
-     return view('home')->with('doctor',$doctor)->with('data',$patient);
+     return view('home')->with('doctor_count',$doctor_count)
+                        ->with('patient_count',$patient_count)
+                        ->with('appointment_count',$appointment_count)
+                        ->with('data',$patient);
+    }
+    public function make_admin()
+    {
+        $doctors=User::all();
+        return view('admin.make_admin')->with('doctors',$doctors);
+    }
+    public function change_permission($id)
+    {
+       $user = User::find($id);
+       if($user->is_admin){
+             $user->is_admin = NULL;
+             $user->save();
+       }else{
+             $user->is_admin = 1;
+             $user->save();
+       }
+       return redirect()->back()->with('msg','Permission changed successfully..!');
     }
 }
