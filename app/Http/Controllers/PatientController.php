@@ -21,7 +21,9 @@ class PatientController extends Controller
 
     public function view_record($id){
         $patient = Patient::where('id',$id)->first();
-        $records = Record::where('id',$id)->get();
+        
+        $records = Record::where('patient_id',$id)->get();
+       // return $records;
         return view('records.view_record')->with('patient',$patient)->with('records',$records);
     }
     public function clear_due($id)

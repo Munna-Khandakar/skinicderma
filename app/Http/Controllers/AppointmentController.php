@@ -100,6 +100,9 @@ class AppointmentController extends Controller
          
         switch ($request->input('action')) {
             case 'save':
+                if($request->date == NULL){
+                    return redirect()->back()->with('msg','Date and time is not set properly..!');
+                }
                 //google calender date & time format
                 $date = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
                 $time12=$request->time;
