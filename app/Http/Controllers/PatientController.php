@@ -28,7 +28,8 @@ class PatientController extends Controller
     }
     public function clear_due($id)
     {
-        Record::where('id', $id)->update(array('due' => NULL));
+        $record = Record::where('id', $id)->first();
+        Record::where('id', $id)->update(array('paid_amount' => $record->total_bill));
         return redirect()->back()->with('msg','Due Amount cleared successfully..!');
     }
    

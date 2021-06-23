@@ -66,30 +66,69 @@
                         <table id="order-listing" class="table table-striped" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>Activity</th>
-                                    <th>Activity</th>
-                                    <th>Due</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
+                                    <th>Service</th>
+                                    <th>Adviced Sitting to be done</th>
+                                    <th>Sitting completed</th>
+                                    <th>Remaining sitting</th>
+                                    <th>Total Bill to be paid</th>
+                                    <th>Paid Amount</th>
+                                    <th>Next Date</th>
+                                    <th>Due Amount</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <Form method="POST" class="sign-up-form" action="{{ route('saveRecords') }}">
+                                        @csrf
+                                        <td><input type='text' name='service' style='width:150px'></td>
+                                        <td><input type='text' name='advice_sitting' style='width:50px'></td>
+                                        <td><input type='text' name='sitting_completed' style='width:50px'></td>
+                                        <td>
+                                        <input type='text' name='patient_id' value={{ $patient->id}} hidden>
+                                        <input type='text' name='name' value={{ $patient->name}} hidden>
+                                        <input type='email' name='email' value={{ $patient->email}} hidden>
+                                        </td>
+                                        <td><input type='text' name='total_bill' style='width:50px'></td>
+                                        <td><input type='text' name='paid_amount' style='width:50px'></td>
+                                        <td><input type='date' name='next_date' style='width:150px'></td>
+                                        <td> <button type="submit">Save</button></td>
+                                    </Form>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href=""><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @foreach ($records as $record)
                                 <tr>
-                                    <td>{{$record->activity01}}</td>
-                                    <td>{{$record->activity02}}</td>
+                                    <td>{{$record->service}}</td>
+                                    <td>{{$record->advice_sitting}}</td>
+                                    <td>{{$record->sitting_completed}}</td>
+                                    <td>{{$record->advice_sitting - $record->sitting_completed}}</td>
+                                    <td>{{$record->total_bill}}</td>
+                                    <td>{{$record->paid_amount}}</td>
+                                    <td>{{$record->next_date}}</td>
                                     <td>
-                                        @if ($record->due)
-                                        <label class="badge badge-danger">{{$record->due}}</label>
+                                        @if ($record->total_bill - $record->paid_amount)
+                                        <label class="badge badge-danger">{{$record->total_bill - $record->paid_amount}}</label>
                                         @else
                                         <label class="badge badge-success">Clear</label>
                                         @endif
 
                                     </td>
-                                    <td>{{$record->created_at->format('d/m/Y')}}</td>
-                                    <td>
-                                        {{-- onclick="window.location='{{ route('view_record',['id' => $patient->id]) }}'" --}}
-                                        <button class="btn btn-outline-primary" onclick="window.location='{{ route('clear_due',['id' => $record->id]) }}'">Clear Due</button>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{ route('clear_due',['id' => $record->id]) }}"><i class="fa fa-trash-o m-r-5"></i> Clear Due</a>
+                                                <a class="dropdown-item" href=""><i class="fa fa-pencil m-r-5"></i> Set Appointment</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach

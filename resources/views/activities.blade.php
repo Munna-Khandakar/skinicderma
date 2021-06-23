@@ -13,43 +13,46 @@
     <div class="row">
         <div class="col-sm-4 col-3">
             <h4 class="page-title">Activities</h4>
-            <h5 class="page-sub-title">These Patient's records are not saved...</h5>
+            <h5 class="page-sub-title">Online appointments which are not checked...</h5>
         </div>
     </div>
-    <div class="content-wrapper">
-
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <table id="order-listing" class="table table-striped" style="width:100%;">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Gender</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($patients as $patient)
-                                <tr>
-                                    <td><img width="28" height="28" src="admin/assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> {{ $patient -> name}} </td>
-                                    <td>{{$patient->email}}</td>
-                                    <td>{{$patient->phone}}</td>
-                                    <td>{{$patient->gender}}</td>
-                                    <td>{{$patient->date}}</td>
-                                    <td>
-                                        <button class="btn btn-outline-primary" onclick="window.location='{{ route('add_record',['id' => $patient->id])}}'">ADD Record</button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped custom-table">
+                    <thead>
+                        <tr>
+                            <th>Serial no</th>
+                            <th>Patient Name</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $number = 01; ?>
+                        @foreach($appointments as $data)
+                        <tr>
+                            <td>{{ $number }}</td>
+                            <td><img width="28" height="28" src="admin/assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> {{ $data -> name}} </td>
+                            <td> {{ $data -> gender}} </td>
+                            <td> {{ $data -> phone}} </td>
+                            <td> {{ $data -> email}} </td>
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="{{ url('/save/appointment/'.$data->id) }}"><i class="fa fa-pencil m-r-5"></i> Set Appointment</a>
+                                        <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{ url('/delete/appointment/'.$data->id) }}" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php $number++; ?>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

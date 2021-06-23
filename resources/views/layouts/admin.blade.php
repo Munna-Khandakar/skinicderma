@@ -104,18 +104,22 @@
                         <li>
                             <a href="{{ route('doctors') }}"><i class="fa fa-user-md"></i> <span>Team Members</span></a>
                         </li>
+                        <li>
+                            <a href="{{ url('/settings') }}"><i class="fa fa-dashboard"></i> <span>Settings</span></a>
+                        </li>
                         @endif
                         <li>
                             <a href="{{ route('patients') }}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('activities') }}"><i class="fa fa-bell-o"></i> <span>Activities</span></a>
+                            <a href="{{ route('appointments') }}"><i class="fa fa-calendar"></i> <span>Today's Appointments</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('appointments') }}"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                            <a href="{{ route('activities') }}"><i class="fa fa-bell-o"></i> <span>Online Appointments</span></a>
                         </li>
+                        
                         <li>
-                            <a href="{{ route('schedule') }}"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+                            <a href="{{ route('schedule') }}"><i class="fa fa-calendar-check-o"></i> <span>Doctor's Schedule</span></a>
                         </li>
 
                     </ul>

@@ -36,9 +36,12 @@ class AppointmentController extends Controller
     }
     public function read(){
         //appointments which are not checked
-        $data=Appointment::whereNull('checked')
-        ->whereNull('date')
-        ->get();
+        // $data=Appointment::whereNull('checked')
+        // ->whereNull('date')
+        // ->get();
+        $data= Appointment::where(['appointments.date' => Carbon::now('Asia/Dhaka')->addDay(0)->format('Y-m-d')])
+             ->orderBy('checked')
+             ->get();
     
         return view('appointments')->with('appointments',$data,);
     }
@@ -77,7 +80,7 @@ class AppointmentController extends Controller
         ];
         Mail::to($request->email)->send(new ConfirmMail($data));
 
-        return redirect()->route('appointments')->with('msg','Appointment saved successfully...!');
+        return redirect()->route('activities')->with('msg','Appointment saved successfully...!');
     }
 
     public function deleteAppointment($id){
@@ -164,6 +167,9 @@ class AppointmentController extends Controller
         $appointment->date= $date;
         $appointment->time= $time24;
         $appointment->save();
+
+        
+
            
         //google calender settings
         $startTime=Carbon::parse($date.' '.$time24.'Asia/Dhaka');

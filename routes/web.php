@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/doctors', [App\Http\Controllers\DoctorController::class, 'read'])->name('doctors');
     Route::get('/patients',[App\Http\Controllers\PatientController::class, 'read'])->name('patients');
+    Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings');
+    Route::post('/change/settings', [App\Http\Controllers\SettingsController::class, 'update'])->name('change_settings');
     Route::get('/appointments',[App\Http\Controllers\AppointmentController::class, 'read'])->name('appointments');
     Route::get('/new/appointments',[App\Http\Controllers\AppointmentController::class, 'newAppointment'])->name('newAppointment');
     Route::get('/schedule',[App\Http\Controllers\AppointmentController::class, 'schedule'])->name('schedule');
@@ -59,7 +61,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/confirmed/manually',[App\Http\Controllers\AppointmentController::class, 'bookAppointmentManually'])->name('bookAppointmentManually');
 
     Route::get('/activities',[App\Http\Controllers\ActivitiesController::class, 'read'])->name('activities');
-    Route::get('/activities/record/{id}',[App\Http\Controllers\ActivitiesController::class, 'add_record'])->name('add_record');
+    Route::get('/activities/record/{phone}',[App\Http\Controllers\ActivitiesController::class, 'add_record'])->name('add_record');
     Route::post('/save/record',[App\Http\Controllers\ActivitiesController::class, 'save_record'])->name('saveRecords');
     Route::get('/records/{id}',[App\Http\Controllers\PatientController::class, 'view_record'])->name('view_record');
     Route::get('/due/{id}',[App\Http\Controllers\PatientController::class, 'clear_due'])->name('clear_due');
