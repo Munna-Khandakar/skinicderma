@@ -102,26 +102,30 @@
                             <a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('doctors') }}"><i class="fa fa-user-md"></i> <span>Team Members</span></a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/settings') }}"><i class="fa fa-dashboard"></i> <span>Settings</span></a>
-                        </li>
-                        @endif
-                        <li>
-                            <a href="{{ route('patients') }}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                            <a href="{{ route('schedule') }}"><i class="fa fa-calendar-check-o"></i> <span>Doctor's Schedule</span></a>
                         </li>
                         <li>
                             <a href="{{ route('appointments') }}"><i class="fa fa-calendar"></i> <span>Today's Appointments</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('activities') }}"><i class="fa fa-bell-o"></i> <span>Online Appointments</span></a>
+                            <a href="{{ route('activities') }}"><i class="fa fa-globe"></i> <span>Online Appointments</span></a>
                         </li>
-                        
                         <li>
-                            <a href="{{ route('schedule') }}"><i class="fa fa-calendar-check-o"></i> <span>Doctor's Schedule</span></a>
+                            <a href="{{ route('patients') }}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-
+                        <li>
+                            <a href="{{ route('doctors') }}"><i class="fa fa-user-md"></i> <span>Team Members</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-money"></i> <span>Med Stock</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-plus"></i> <span>Med Stock</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/settings') }}"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>
