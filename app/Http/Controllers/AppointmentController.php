@@ -10,6 +10,7 @@ use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use Spatie\GoogleCalendar\Event;
 use DB;
+use App\Models\Setting;
 use App\Models\Patient;
 use App\Models\Appointment;
 use Carbon\Carbon;
@@ -153,9 +154,14 @@ class AppointmentController extends Controller
      }
 
      public function bookAppointmentManually(Request $request){
+
+        //office starting time and duration
+        $starting_hour = Setting::where('settings_name','starting_hour')->first();
+        $office_duration = Setting::where('settings_name','office_duration')->first();
+
        //google calender date & time format
        $date = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
-       $time12=$request->time;
+       $time12=$starting_hour->settings_value;
        $time24  = date("H:i", strtotime( $time12 ));
 
         //saving date to db

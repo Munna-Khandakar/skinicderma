@@ -31,6 +31,10 @@ class HomeController extends Controller
         $doctor_count=User::count();
         $patient_count=Patient::count();
         $appointment_count=Appointment::count();
+
+        $online_appointment_count=Appointment::whereNull('checked')
+        ->whereNull('date')
+        ->count();
         
         //fetching the appointment for today
         $patient= Appointment::where(['appointments.date' => Carbon::now('Asia/Dhaka')->addDay(0)->format('Y-m-d')])
@@ -41,6 +45,7 @@ class HomeController extends Controller
      return view('home')->with('doctor_count',$doctor_count)
                         ->with('patient_count',$patient_count)
                         ->with('appointment_count',$appointment_count)
+                        ->with('online_appointment_count',$online_appointment_count)
                         ->with('data',$patient);
     }
     public function make_admin()

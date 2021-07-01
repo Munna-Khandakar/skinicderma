@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2021 at 08:16 PM
+-- Generation Time: Jul 01, 2021 at 09:23 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,7 +32,7 @@ CREATE TABLE `appointments` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
   `time` time DEFAULT NULL,
   `checked` tinyint(1) DEFAULT NULL,
@@ -46,25 +46,13 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `name`, `gender`, `phone`, `email`, `date`, `time`, `checked`, `saved`, `created_at`, `updated_at`) VALUES
-(1, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-14', '15:22:00', 1, 1, '2021-06-14 03:19:23', '2021-06-14 03:26:56'),
-(2, 'Shisad Khandakar', 'Male', '01794941342', 'shisadkhandakar@gmail.com', '2021-06-14', '16:22:00', 1, 1, '2021-06-14 03:20:01', '2021-06-14 03:27:26'),
-(3, 'Riadul Islam', 'Male', '01905069807', 'riad@gmail.com', '2021-06-14', '17:22:00', 1, 1, '2021-06-14 03:20:38', '2021-06-14 03:27:19'),
-(7, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-14', '17:26:00', 1, 1, '2021-06-14 03:24:38', '2021-06-14 03:30:04'),
-(9, 'Riadul Islam', 'Male', '01905069807', 'riad@gmail.com', '2021-06-14', '16:27:00', 1, 1, '2021-06-14 03:26:07', '2021-06-14 03:29:14'),
-(12, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-14', '17:11:00', 1, NULL, '2021-06-14 04:11:38', '2021-06-14 04:23:00'),
-(13, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-16', '16:22:00', NULL, NULL, '2021-06-14 04:22:24', '2021-06-14 04:22:24'),
-(14, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-26', '17:22:00', NULL, NULL, '2021-06-14 04:23:00', '2021-06-14 04:23:00'),
-(15, 'Munna Khandakar', 'Male', '01794807577', 'munnasahisad@gmail.com', '2021-06-17', '16:30:00', NULL, NULL, '2021-06-14 04:29:00', '2021-06-14 04:29:00'),
-(16, 'Shisad Khandakar', 'Male', '01794941342', 'shisadkhandakar@gmail.com', '2021-06-14', '20:04:00', 1, NULL, '2021-06-14 04:29:49', '2021-06-14 07:05:17'),
-(17, 'Shisad Khandakar', 'Male', '01794941342', 'shisadkhandakar@gmail.com', '2021-06-21', '17:05:00', NULL, NULL, '2021-06-14 07:05:17', '2021-06-14 07:05:17'),
-(18, 'Asif', 'Male', '123456', 'munnashisad@gmail.com', '2021-06-21', '22:48:00', NULL, NULL, '2021-06-14 07:26:53', '2021-06-21 10:48:51'),
-(19, 'Zaim', 'male', '1234', 'munnashisad@gmail.com', '2021-06-22', '12:12:00', NULL, NULL, '2021-06-14 08:10:40', '2021-06-22 00:12:11'),
-(20, 'asd', 'male', '123', 'munnashisad@gmail.com', '2021-06-22', '20:13:00', NULL, NULL, '2021-06-14 08:12:58', '2021-06-22 00:13:11'),
-(21, 'asd', 'male', '123', 'munnashisad@gmail.com', '2021-06-23', '16:49:00', NULL, NULL, '2021-06-14 08:13:02', '2021-06-22 13:49:58'),
-(22, 'Homer R Shield', 'male', '9206126491', 'munnashisad@gmail.com', '2021-06-14', '21:36:00', 1, NULL, '2021-06-14 08:36:56', '2021-06-14 08:37:20'),
-(23, 'Homer R Shield', 'male', '9206126491', 'munnashisad@gmail.com', '2021-06-14', '20:37:00', NULL, NULL, '2021-06-14 08:37:20', '2021-06-14 08:37:20'),
-(24, 'Munna Khandakar', 'Male', '01794807577', 'munnashisad@gmail.com', '2021-06-22', '16:28:00', NULL, NULL, '2021-06-21 10:26:39', '2021-06-21 10:30:31'),
-(25, 'Tarikul Abir', 'Male', '01794803213', 'munnashisad@gmail.com', '2021-06-22', '12:10:00', NULL, 1, '2021-06-22 00:06:21', '2021-06-22 00:14:05');
+(1, 'Riadul Islam', 'Male', '01711507094', 'm.riad2572@gmail.com', '2021-07-03', '16:09:00', NULL, NULL, '2021-07-01 00:08:50', '2021-07-01 00:09:37'),
+(2, 'Shisad Khandakar', 'Male', '01794941342', 'shisadkhandakar@gmail.com', '2021-07-01', '16:10:00', NULL, NULL, '2021-07-01 00:10:44', '2021-07-01 00:10:44'),
+(3, 'Shisad Khandakar', 'Male', '01794941342', 'shisadkhandakar@gmail.com', '2021-07-02', '18:00:00', NULL, NULL, '2021-07-01 00:23:25', '2021-07-01 00:23:25'),
+(4, 'Shakil Ahmed', 'Male', '01905069807', NULL, '2021-07-01', '18:00:00', NULL, NULL, '2021-07-01 00:32:59', '2021-07-01 00:32:59'),
+(5, 'Shakil Ahmed', 'Male', '01905069807', NULL, '2021-07-03', '18:00:00', NULL, NULL, '2021-07-01 00:33:31', '2021-07-01 00:33:31'),
+(6, 'Riadul Islam', 'Male', '01711507094', 'm.riad2572@gmail.com', NULL, NULL, NULL, NULL, '2021-07-01 01:10:52', '2021-07-01 01:10:52'),
+(7, 'Sowarna Islam', 'female', '1711507094', NULL, '2021-07-02', '18:00:00', NULL, NULL, '2021-07-01 01:21:41', '2021-07-01 01:21:41');
 
 -- --------------------------------------------------------
 
@@ -113,17 +101,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_12_12_183401_create_invites_table', 1),
-(5, '2020_12_13_130344_create_profiles_table', 1),
-(6, '2021_01_23_164253_create_appointments_table', 1),
-(7, '2021_01_23_185635_create_patients_table', 1),
 (8, '2021_06_07_025021_create_records_table', 1),
 (9, '2021_06_22_135026_create_records_table', 2),
-(10, '2021_06_22_173730_create_records_table', 3),
-(11, '2021_06_22_182158_create_settings_table', 4);
+(12, '2014_10_12_000000_create_users_table', 3),
+(13, '2014_10_12_100000_create_password_resets_table', 3),
+(14, '2019_08_19_000000_create_failed_jobs_table', 3),
+(15, '2020_12_12_183401_create_invites_table', 3),
+(16, '2020_12_13_130344_create_profiles_table', 3),
+(17, '2021_01_23_164253_create_appointments_table', 3),
+(18, '2021_01_23_185635_create_patients_table', 3),
+(19, '2021_06_22_173730_create_records_table', 3),
+(20, '2021_06_22_182158_create_settings_table', 3);
 
 -- --------------------------------------------------------
 
@@ -137,13 +125,6 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('munnashisad@gmail.com', '$2y$10$Gv4swHc.pyOzc/GAc7Fgkua5IKdnm1.LbiZ9CC1EUXOF9vDg3VOHO', '2021-06-21 10:21:34');
-
 -- --------------------------------------------------------
 
 --
@@ -155,8 +136,8 @@ CREATE TABLE `patients` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `due` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remarks` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -165,13 +146,10 @@ CREATE TABLE `patients` (
 -- Dumping data for table `patients`
 --
 
-INSERT INTO `patients` (`id`, `name`, `phone`, `gender`, `email`, `due`, `created_at`, `updated_at`) VALUES
-(1, 'Munna Khandakar', '01794807577', 'Male', 'munnasahisad@gmail.com', NULL, '2021-06-14 03:26:56', '2021-06-14 03:26:56'),
-(2, 'Riadul Islam', '01905069807', 'Male', 'riad@gmail.com', NULL, '2021-06-14 03:27:19', '2021-06-14 03:27:19'),
-(3, 'Shisad Khandakar', '01794941342', 'Male', 'shisadkhandakar@gmail.com', NULL, '2021-06-14 03:27:26', '2021-06-14 03:27:26'),
-(4, 'Tarikul Abir', '01794803213', 'Male', 'abir@gmail.com', NULL, '2021-06-22 00:14:05', '2021-06-22 00:14:05'),
-(5, 'asd', '123', 'male', 'asd@gmail.com', NULL, '2021-06-22 09:05:54', '2021-06-22 09:05:54'),
-(6, 'Zaim', '1234', 'male', 'munnashisad@gmail.com', NULL, '2021-06-22 09:14:09', '2021-06-22 09:14:09');
+INSERT INTO `patients` (`id`, `name`, `phone`, `gender`, `email`, `remarks`, `created_at`, `updated_at`) VALUES
+(1, 'Sowarna Islam', '1711507094', 'female', NULL, NULL, '2021-06-30 22:11:19', '2021-06-30 22:11:19'),
+(2, 'Shisad Khandakar', '01794941342', 'Male', 'shisadkhandakar@gmail.com', NULL, '2021-07-01 00:11:32', '2021-07-01 00:11:32'),
+(3, 'Shakil Ahmed', '01905069807', 'Male', NULL, NULL, '2021-07-01 00:33:16', '2021-07-01 00:33:16');
 
 -- --------------------------------------------------------
 
@@ -190,14 +168,6 @@ CREATE TABLE `profiles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `profiles`
---
-
-INSERT INTO `profiles` (`id`, `user_id`, `phone`, `address`, `gender`, `occupation`, `img`, `created_at`, `updated_at`) VALUES
-(1, '1', '01794807577', '#426 house,#06 road,#06 Avenue, Mirpur DOSH, Mirpur 12,Dhaka', 'Male', 'IT Engineer', 'admin/assets/upload/doctor.png', NULL, NULL),
-(2, '2', '+8801726057805', 'house 733  road 11 avenue 4 , Mirpur DOHS, Dhaka', 'male', 'Dermatologist', 'admin/assets/upload/doctor.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -223,15 +193,20 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`id`, `patient_id`, `service`, `advice_sitting`, `sitting_completed`, `total_bill`, `paid_amount`, `next_date`, `created_at`, `updated_at`) VALUES
-(1, '2', 'PRP', '10', '6', '1200', '1000', NULL, '2021-06-22 11:44:22', '2021-06-22 11:44:22'),
-(2, '4', 'Botox', '10', '6', '1200', '1200', NULL, '2021-06-22 11:45:36', '2021-06-22 11:58:32'),
-(3, '4', 'Botox', '10', '7', '1200', '1200', '2021-06-25', '2021-06-22 11:49:42', '2021-06-22 11:49:42'),
-(4, '4', 'Botox', '10', '8', '1200', '700', '2021-06-24', '2021-06-22 12:11:30', '2021-06-22 12:11:30'),
-(5, '4', 'Botox', '10', '9', '1200', '1000', '2021-06-24', '2021-06-22 12:13:07', '2021-06-22 12:13:07'),
-(6, '4', 'Botox', '10', '9', '1200', '1000', '2021-06-24', '2021-06-22 12:17:27', '2021-06-22 12:17:27'),
-(7, '1', 'PRP', '10', '8', '1200', '1000', '2021-06-24', '2021-06-22 13:47:02', '2021-06-22 13:47:02'),
-(8, '5', 'Botox', '10', '6', '1200', '1200', '2021-06-26', '2021-06-22 13:52:07', '2021-06-22 13:53:08'),
-(9, '2', 'PRP', '10', '7', '1200', '1200', '2021-06-30', '2021-06-22 13:54:52', '2021-06-22 13:54:52');
+(3, '1', 'Botox', '10', '8', '20000', '12000', NULL, '2021-06-30 22:51:37', '2021-06-30 22:51:37'),
+(4, '1', 'Botox', '10', '9', '12000', '12000', NULL, '2021-06-30 23:13:33', '2021-06-30 23:13:33'),
+(5, '1', 'Botox', '10', '10', '12000', '12000', NULL, '2021-06-30 23:32:36', '2021-06-30 23:32:36'),
+(6, '1', 'PRP', '10', '8', '12000', '15000', NULL, '2021-06-30 23:45:52', '2021-06-30 23:45:52'),
+(7, '1', 'PRP', '10', '9', '5000', '5000', '2021-07-02', '2021-06-30 23:56:46', '2021-06-30 23:56:46'),
+(8, '1', 'PRP', '10', '10', '5000', '5000', '2021-07-02', '2021-07-01 00:03:54', '2021-07-01 00:03:54'),
+(9, '2', 'Botox', '10', '1', '12000', '10000', '2021-07-02', '2021-07-01 00:11:53', '2021-07-01 00:11:53'),
+(10, '2', 'PRP', '10', '1', '5000', '5000', '2021-07-03', '2021-07-01 00:17:49', '2021-07-01 00:17:49'),
+(11, '01794941342', 'PRP', '10', '2', '5000', '6000', '2021-07-03', '2021-07-01 00:20:06', '2021-07-01 00:20:06'),
+(12, '01794941342', 'PRP', '10', '2', '5000', '6000', '2021-07-03', '2021-07-01 00:20:43', '2021-07-01 00:20:43'),
+(13, '2', 'PRP', '10', '2', '1200', '2000', '2021-07-03', '2021-07-01 00:21:13', '2021-07-01 00:21:13'),
+(14, '2', 'Botox', '10', '2', '12000', '15000', '2021-07-02', '2021-07-01 00:23:15', '2021-07-01 00:23:15'),
+(15, '3', 'Botox', '10', '1', '1200', '1000', '2021-07-03', '2021-07-01 00:33:30', '2021-07-01 00:33:30'),
+(16, '1', 'Laser', '5', '1', '2000', '1000', '2021-07-02', '2021-07-01 01:21:39', '2021-07-01 01:21:39');
 
 -- --------------------------------------------------------
 
@@ -252,8 +227,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `settings_name`, `settings_value`, `created_at`, `updated_at`) VALUES
-(1, 'starting_hour', '6:00 PM', NULL, '2021-06-22 13:53:50'),
-(2, 'office_duration', '2', NULL, '2021-06-22 13:53:50');
+(1, 'starting_hour', '6:00 PM', NULL, '2021-07-01 00:34:45'),
+(2, 'office_duration', '2', NULL, '2021-07-01 00:34:45');
 
 -- --------------------------------------------------------
 
@@ -278,9 +253,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Munna Khandakar', 'munnashisad@gmail.com', NULL, '$2y$10$r8gENUPXw157AHf/1EW0KefjsOx1DrT5IS1jexoXWOG8S.0D/Je.e', 1, 'Sa5OMmHDPaxFYWTyTmINGCfOjBnQoaXMnNkYd42yEkFJpNlGpv4cxqlaal1S', NULL, NULL),
-(2, 'Dr. Asif Imran Siddiqui', 'docasifimran@gmail.com', NULL, '$2y$10$94eTgX3E5cUw5p2XXHDPH.coICp41bGnB0lQCUHWyWfzuzsuKDRyW', NULL, 'ZEkSIOSGzPajDnF6XS25xbGa1dVmXmLMHeXqVhj5DkpLjbctCAW7LZWhTOuA', '2021-06-14 06:59:45', '2021-06-14 08:40:24'),
-(3, 'ishrat', 'ij01912156822@gmail.com', NULL, '$2y$10$zXe6xknoWAdu1NnNupbnjufgDGZRKaW9mEQxHeyCwCd.Smh7.sNYO', 1, 'rUsLRiu1G63Y4IgbaVOKF9FjLuGmjXDEO2iP4wgtb7LyCMi2bzbpydOYpg3A', '2021-06-14 07:02:16', '2021-06-14 07:03:28');
+(1, 'Munna Khandakar', 'munnashisad@gmail.com', NULL, '$2y$10$r8gENUPXw157AHf/1EW0KefjsOx1DrT5IS1jexoXWOG8S.0D/Je.e', 1, 'd8pvqJmbEqEYUhuea1vz7F2fouyKMa8oS9IpoctU5meMxIwxQbb4tkztLOb7', NULL, NULL),
+(2, 'Dr. Asif Imran Siddiqui', 'docasifimran@gmail.com', NULL, '$2y$10$94eTgX3E5cUw5p2XXHDPH.coICp41bGnB0lQCUHWyWfzuzsuKDRyW', 1, NULL, NULL, NULL),
+(3, 'Ishrat', 'ij01912156822@gmail.com', NULL, '$2y$10$zXe6xknoWAdu1NnNupbnjufgDGZRKaW9mEQxHeyCwCd.Smh7.sNYO', 1, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -358,7 +333,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -370,31 +345,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `invites`
 --
 ALTER TABLE `invites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `settings`

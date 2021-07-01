@@ -68,7 +68,11 @@ class ActivitiesController extends Controller
             $record->advice_sitting = $request->advice_sitting;
             $record->sitting_completed = $request->sitting_completed;
             $record->total_bill = $request->total_bill;
-            $record->paid_amount = $request->paid_amount;
+            if(empty($request->paid_amount)){
+                $record->paid_amount = $request->total_bill;
+            }else{
+                $record->paid_amount = $request->paid_amount;
+            }        
             $record->next_date = $request->next_date;
             $record->save();
 
@@ -91,6 +95,16 @@ class ActivitiesController extends Controller
              $event->startDateTime = $startTime;
              $event->endDateTime =  $endTime;
              $event->save();
+
+             //saving appointment
+             $appointment=new Appointment;
+             $appointment->name= $request->name;
+             $appointment->phone= $request->phone;
+             $appointment->email= $request->email;
+             $appointment->gender= $request->gender;
+             $appointment->date= $date;
+             $appointment->time= $time24;
+             $appointment->save();
             }
             if(!empty($request->email)){
                 $starting_hour = Setting::where('settings_name','starting_hour')->first();
@@ -102,7 +116,8 @@ class ActivitiesController extends Controller
                 Mail::to($request->email)->send(new NextAppointmentMail($data));
             }
             
-            return redirect()->back()->with('msg','Record saved successfully..!');
+            return redirect()->back()->with('msg','Record saved successfully..!')
+                                     ->with('type','success');
         
     }
 }

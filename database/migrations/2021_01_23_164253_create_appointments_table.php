@@ -18,7 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->boolean('checked')->nullable();

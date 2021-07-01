@@ -108,7 +108,11 @@
                             <a href="{{ route('appointments') }}"><i class="fa fa-calendar"></i> <span>Today's Appointments</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('activities') }}"><i class="fa fa-globe"></i> <span>Online Appointments</span></a>
+                            <a href="{{ route('activities') }}"><i class="fa fa-globe"></i>
+                                @if(App\Models\Appointment::whereNull('date')->count())
+                                <span class="badge badge-pill bg-primary float-right">{{App\Models\Appointment::whereNull('date')->count()}}</span>
+                                @endif
+                                <span>Online Appointments</span></a>
                         </li>
                         <li>
                             <a href="{{ route('patients') }}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
@@ -117,7 +121,7 @@
                             <a href="{{ route('doctors') }}"><i class="fa fa-user-md"></i> <span>Team Members</span></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-money"></i> <span>Med Stock</span></a>
+                            <a href="#"><i class="fa fa-money"></i> <span>Accounts</span></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-plus"></i> <span>Med Stock</span></a>

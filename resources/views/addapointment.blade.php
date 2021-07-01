@@ -8,9 +8,8 @@
     </div>
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
-            <form method="POST" class="sign-up-form" action="{{ route('bookAppointmentManually') }}"> 
-            @csrf 
-        
+            <form method="POST" class="sign-up-form" action="{{ route('bookAppointmentManually') }}">
+                @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -25,7 +24,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -36,11 +34,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Patient Email</label>
-                            <input class="form-control" type="email" name="email" required>
+                            <input class="form-control" type="email" name="email" >
                         </div>
                     </div>
-                 </div>
-                 <div class="row">
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Date</label>
@@ -49,20 +47,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    {{-- the time will set from office starting hour --}}
+                    {{-- <div class="col-md-6">
                         <div class="form-group">
                             <label>Time</label>
                             <div class="time-icon">
                                 <input type="text" class="form-control" id="datetimepicker3" name="time" required>
                             </div>
                         </div>
-                    </div>
-                 </div>
+                    </div> --}}
+                </div>
 
                 <div class="m-t-20 text-center">
                     <button class="btn btn-primary submit-btn">Save</button>
                 </div>
-              
+
             </form>
         </div>
     </div>
