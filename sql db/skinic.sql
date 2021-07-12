@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 09:23 AM
+-- Generation Time: Jul 12, 2021 at 07:48 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -52,7 +52,18 @@ INSERT INTO `appointments` (`id`, `name`, `gender`, `phone`, `email`, `date`, `t
 (4, 'Shakil Ahmed', 'Male', '01905069807', NULL, '2021-07-01', '18:00:00', NULL, NULL, '2021-07-01 00:32:59', '2021-07-01 00:32:59'),
 (5, 'Shakil Ahmed', 'Male', '01905069807', NULL, '2021-07-03', '18:00:00', NULL, NULL, '2021-07-01 00:33:31', '2021-07-01 00:33:31'),
 (6, 'Riadul Islam', 'Male', '01711507094', 'm.riad2572@gmail.com', NULL, NULL, NULL, NULL, '2021-07-01 01:10:52', '2021-07-01 01:10:52'),
-(7, 'Sowarna Islam', 'female', '1711507094', NULL, '2021-07-02', '18:00:00', NULL, NULL, '2021-07-01 01:21:41', '2021-07-01 01:21:41');
+(7, 'Sowarna Islam', 'female', '1711507094', NULL, '2021-07-02', '18:00:00', NULL, NULL, '2021-07-01 01:21:41', '2021-07-01 01:21:41'),
+(8, 'Shakil Ahmed', 'Male', '01905069807', NULL, '2021-07-05', '18:00:00', NULL, NULL, '2021-07-01 08:37:36', '2021-07-01 08:37:36'),
+(9, 'Israt', 'Male', '01794807777', 'munnashisad@gmail.com', '2021-07-02', '20:39:00', NULL, NULL, '2021-07-01 08:39:02', '2021-07-01 08:39:59'),
+(10, 'ABC', 'Male', '0122', 'munnashisad@gmail.com', '2021-07-10', '16:54:00', NULL, NULL, '2021-07-01 08:53:55', '2021-07-01 08:55:01'),
+(11, 'Munna Khandakar', 'Male', '9206126491', 'munnashisad@gmail.com', NULL, NULL, NULL, NULL, '2021-07-12 05:01:03', '2021-07-12 05:01:03'),
+(12, 'Homer R Shield', 'Male', '9206126491', 'munnashisad@gmail.com', NULL, NULL, NULL, NULL, '2021-07-12 11:34:20', '2021-07-12 11:34:20'),
+(13, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:36:37', '2021-07-12 11:36:37'),
+(14, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:38:21', '2021-07-12 11:38:21'),
+(15, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:38:57', '2021-07-12 11:38:57'),
+(16, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:41:32', '2021-07-12 11:41:32'),
+(17, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:44:52', '2021-07-12 11:44:52'),
+(18, 'Homer R Shield', 'Male', '9206126491', 'tepawe8338@naymeo.com', NULL, NULL, NULL, NULL, '2021-07-12 11:46:22', '2021-07-12 11:46:22');
 
 -- --------------------------------------------------------
 
@@ -87,6 +98,22 @@ CREATE TABLE `invites` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -111,7 +138,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2021_01_23_164253_create_appointments_table', 3),
 (18, '2021_01_23_185635_create_patients_table', 3),
 (19, '2021_06_22_173730_create_records_table', 3),
-(20, '2021_06_22_182158_create_settings_table', 3);
+(20, '2021_06_22_182158_create_settings_table', 3),
+(21, '2021_07_12_103658_create_jobs_table', 4);
 
 -- --------------------------------------------------------
 
@@ -205,8 +233,10 @@ INSERT INTO `records` (`id`, `patient_id`, `service`, `advice_sitting`, `sitting
 (12, '01794941342', 'PRP', '10', '2', '5000', '6000', '2021-07-03', '2021-07-01 00:20:43', '2021-07-01 00:20:43'),
 (13, '2', 'PRP', '10', '2', '1200', '2000', '2021-07-03', '2021-07-01 00:21:13', '2021-07-01 00:21:13'),
 (14, '2', 'Botox', '10', '2', '12000', '15000', '2021-07-02', '2021-07-01 00:23:15', '2021-07-01 00:23:15'),
-(15, '3', 'Botox', '10', '1', '1200', '1000', '2021-07-03', '2021-07-01 00:33:30', '2021-07-01 00:33:30'),
-(16, '1', 'Laser', '5', '1', '2000', '1000', '2021-07-02', '2021-07-01 01:21:39', '2021-07-01 01:21:39');
+(15, '3', 'Botox', '10', '1', '1200', '1200', '2021-07-03', '2021-07-01 00:33:30', '2021-07-01 08:18:42'),
+(16, '1', 'Laser', '5', '1', '2000', '1000', '2021-07-02', '2021-07-01 01:21:39', '2021-07-01 01:21:39'),
+(17, '3', 'PRP', '10', '2', '5000', '8000', NULL, '2021-07-01 08:18:04', '2021-07-01 08:18:04'),
+(18, '3', 'PRP', '10', '3', '5000', '5000', '2021-07-05', '2021-07-01 08:37:34', '2021-07-01 08:37:34');
 
 -- --------------------------------------------------------
 
@@ -283,6 +313,13 @@ ALTER TABLE `invites`
   ADD UNIQUE KEY `invites_token_unique` (`token`);
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -333,13 +370,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `invites`
@@ -348,10 +385,16 @@ ALTER TABLE `invites`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `patients`
@@ -369,7 +412,7 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `settings`

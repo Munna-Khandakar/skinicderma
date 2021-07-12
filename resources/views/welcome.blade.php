@@ -73,7 +73,8 @@
               Appointment
             </button>
           </div>
-          <img src="{{asset('user/img/dermatologist.svg')}}" class="image" alt="" />
+          {{-- <img src="{{asset('user/img/dermatologist.svg')}}" class="image" alt="" /> --}}
+            <img src="{{asset('user/img/Munna_Doctor.png')}}" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">

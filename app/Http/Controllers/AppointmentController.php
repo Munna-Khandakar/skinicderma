@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\WelcomeMailJob;
+use App\Jobs\AdminNotificationMailJob;
 use App\Mail\ConfirmMail;
 use App\Mail\NextAppointmentMail;
-use App\Mail\AdminNotificationMail;
+//use App\Mail\AdminNotificationMail;
 use App\Mail\ThanksMail;
-use App\Mail\WelcomeMail;
+//use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use Spatie\GoogleCalendar\Event;
 use DB;
 use App\Models\Setting;
 use App\Models\Patient;
+use App\Models\User;
 use App\Models\Appointment;
 use Carbon\Carbon;
 use Redirect;
@@ -27,10 +30,30 @@ class AppointmentController extends Controller
         $appointment->save();
         
         if($request->email){
-            Mail::to($request->email)->send(new WelcomeMail($request->name));
+            //sending the email in queue
+
+            $job = (new WelcomeMailJob($request->email,$request->name))
+                ->delay(now()->addSeconds(5));
+            dispatch($job);
+
+            //sending direct mail
+            //Mail::to($request->email)->send(new WelcomeMail($request->name));
         }
-        //admin mail notification....
-        Mail::to('munnashisad@gmail.com')->send(new AdminNotificationMail());
+
+        //sending notification mail to all admin
+        $users = User::select("email")
+        ->where('is_admin',1)
+        ->get();
+        //return $users;
+        //sending the email in queue
+        foreach ($users as $user) {
+        $job = (new AdminNotificationMailJob($user->email))
+                ->delay(now()->addSeconds(5));
+        dispatch($job);
+        }
+
+        //admin mail notification directly....
+        //Mail::to('munnashisad@gmail.com')->send(new AdminNotificationMail());
         return view('thanks');
         
         
